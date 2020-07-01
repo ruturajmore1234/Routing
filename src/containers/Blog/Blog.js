@@ -3,7 +3,6 @@ import './Blog.css';
 import Posts from './Posts/Posts';
 import { Route, Link, NavLink, Switch } from 'react-router-dom';
 import NewPost from "../../containers/Blog/NewPost/NewPost";
-import FullPost from "./FullPost/FullPost"
 
 class Blog extends Component {
 
@@ -13,7 +12,7 @@ class Blog extends Component {
                 <header>
                     <nav>
                         <ul>
-                            <li><NavLink to='/' 
+                            <li><NavLink to='/posts/' 
                                     activeClassName='my-active' 
                                     exact
                                     activeStyle={{color: '#fa923f'}}>Home</NavLink></li>
@@ -25,11 +24,11 @@ class Blog extends Component {
                         </ul>
                     </nav>
                 </header>
-                <Route path="/" exact component={Posts}/>
                 <Switch>
                     {/* sequence is imporatant */}
                     <Route path="/new-post" component={NewPost}/>
-                    <Route path="/:id" exact component={FullPost}/>
+                    <Route path="/posts" component={Posts}/>
+                    <Route path="/" component={Posts}/>
                 </Switch>
             </div>
         );
