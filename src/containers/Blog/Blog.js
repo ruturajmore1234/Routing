@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Blog.css';
 import Posts from './Posts/Posts';
-import { Route, Link, NavLink, Switch } from 'react-router-dom';
+import { Route, Link, NavLink, Switch, Redirect } from 'react-router-dom';
 import NewPost from "../../containers/Blog/NewPost/NewPost";
 
 class Blog extends Component {
@@ -28,7 +28,8 @@ class Blog extends Component {
                     {/* sequence is imporatant */}
                     <Route path="/new-post" component={NewPost}/>
                     <Route path="/posts" component={Posts}/>
-                    <Route path="/" component={Posts}/>
+                    {/* <Route path="/" component={Posts}/> */}
+                    <Redirect from="/" to="/posts" />
                 </Switch>
             </div>
         );
